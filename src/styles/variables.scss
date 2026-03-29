@@ -1,0 +1,27 @@
+@use 'helpers' as *;
+
+:root {
+  --color-white: #FFFFFF;
+  --color-green: #00373E;
+  --color-bg:#F7F6F4; 
+  --color-yellow-light:#F9E6D0;
+
+
+  --border: #{rem(1)} solid var(--color-green);
+
+
+  --font-family-base: 'Bricolage Grotesque', sans-serif;
+
+  --container-width: #{rem(1240)};
+  --container-padding-x: #{rem(15)};
+
+  --transition-duration: 0.2s;
+
+  --border-radius:#{rem(60)};
+
+
+
+  @include laptop {
+    --container-width: #{rem(1280)};
+  }
+}
