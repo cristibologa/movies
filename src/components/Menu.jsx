@@ -1,20 +1,28 @@
 import logo from "../assets/logo.svg";
+import styles from "./Menu.module.scss";
+
 export default function Menu() {
   return (
-    <header>
+    <header className={styles.header}>
       <a href="">
         <img src={logo} width={40} height={40} alt="logo" />
       </a>
       <nav>
-        <ul>
-          <li>
-            <a>Movies</a>
+        <ul className={styles.list}>
+          <li className="item">
+            <a href="#" className={styles.link}>
+              Movies
+            </a>
           </li>
-          <li>
-            <a>TV Shows</a>
+          <li className="item">
+            <a href="#" className={styles.link}>
+              TV Shows
+            </a>
           </li>
-          <li>
-            <a>Suggest me</a>
+          <li className="item">
+            <a href="#" className={styles.link}>
+              Suggest me
+            </a>
           </li>
         </ul>
       </nav>
