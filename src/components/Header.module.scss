@@ -1,0 +1,28 @@
+@use '../styles/helpers' as *;
+.header__wraper{
+	margin-top: rem(80);
+}
+.text{
+	max-width: rem(550);
+	color: var(--grey--300);
+}
+
+.input{
+	padding: rem(12) rem(16);
+	color: var(--grey--600);
+	background-color: transparent;
+	border: 2px solid var(--grey--600);
+	border-radius: rem(12);
+	margin-top: 20px;
+
+	&:focus-visible{
+		border: 2px solid var(--grey--600);
+		outline: none;
+	}
+}
+
+.header_text{
+	display: flex;
+	flex-direction: column;
+	gap: rem(20);
+}

@@ -1,0 +1,7 @@
+@use '../styles/helpers' as *;
+.button__block{
+	padding: 8px;
+	display: flex;
+	gap: rem(15);
+	margin-top: rem(80);
+}

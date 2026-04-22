@@ -1,5 +1,6 @@
 @use 'helpers' as *;
 
+
 html {
   &.is-lock {
     overflow: hidden;
@@ -14,7 +15,10 @@ body {
   font-family: var(--font-family-base),sans-serif;
   letter-spacing: -0.03em;
   color: var(--grey--300);
-  background-color: var(--grey--900);
+  background-color: var(--grey--900); 
+  background-image: url(../assets/Background.png);
+  background-size: cover;
+  background-repeat: no-repeat;
 }
 
 main {

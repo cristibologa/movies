@@ -1,10 +1,7 @@
-import Menu from "./components/Menu";
+import Home from "./Page/Home.jsx";
+
 function App() {
-  return (
-    <div className="container">
-      <Menu />
-    </div>
-  );
+  return <Home />;
 }
 
 export default App;
