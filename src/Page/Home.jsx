@@ -7,7 +7,7 @@ import { useState } from "react";
 export default function Home() {
   const [active, setActive] = useState(1);
   return (
-    <div className="container">
+    <>
       <Menu />
       <Header
         title="MaileHereko"
@@ -24,6 +24,6 @@ export default function Home() {
           TV Shows
         </Button>
       </div>
-    </div>
+    </>
   );
 }
