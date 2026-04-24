@@ -3,7 +3,7 @@ import star from "../assets/star.svg";
 
 export default function Card({ data }) {
   // console.log(data);
-  const { id, name, vote_average, title, poster_path } = data;
+  const { name, vote_average, title, poster_path } = data;
   const image = `https://image.tmdb.org/t/p/w500/${poster_path}`;
   return (
     <div className={styles.wraper}>

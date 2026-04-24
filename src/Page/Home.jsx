@@ -2,10 +2,8 @@ import Menu from "../components/Menu";
 import Header from "../components/Header";
 import styles from "./Home.module.scss";
 import Button from "../components/Button";
-import { useState } from "react";
 
-export default function Home() {
-  const [active, setActive] = useState(1);
+export default function Home({ active, setActive }) {
   return (
     <>
       <Menu />
