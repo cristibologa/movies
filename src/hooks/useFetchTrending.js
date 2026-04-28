@@ -26,7 +26,7 @@ export const useFetchTrending = (type) => {
     };
 
     fetchData();
-  }, []);
+  }, [type]);
 
   return { data, loading, error };
 };

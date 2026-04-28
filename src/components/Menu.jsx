@@ -1,23 +1,24 @@
+import { Link } from "react-router";
 import logo from "../assets/logo.svg";
 import styles from "./Menu.module.scss";
 
 export default function Menu() {
   return (
-    <header className={styles.header}>
-      <a href="">
+    <header className={`${styles.header} container`}>
+      <Link to="/">
         <img src={logo} width={40} height={40} alt="logo" />
-      </a>
+      </Link>
       <nav>
         <ul className={styles.list}>
           <li className="item">
-            <a href="#" className={styles.link}>
+            <Link to="movies" className={styles.link}>
               Movies
-            </a>
+            </Link>
           </li>
           <li className="item">
-            <a href="#" className={styles.link}>
+            <Link to="tv" className={styles.link}>
               TV Shows
-            </a>
+            </Link>
           </li>
           <li className="item">
             <a href="#" className={styles.link}>

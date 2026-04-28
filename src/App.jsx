@@ -1,37 +1,22 @@
-import { useState } from "react";
-import Grid from "./components/Grid.jsx";
-import Home from "./Page/HomePage.jsx";
-import MovieDetails from "./Page/MovieDetails.jsx";
-import { useFetchTrending } from "./hooks/useFetchTrending";
+import { createBrowserRouter, RouterProvider } from "react-router";
+import Home from "./Page/Home.jsx";
+import MainLayout from "./Page/MainLayout.jsx";
+import Movies from "./Page/Movies.jsx";
+import TVShows from "./Page/TVShows.jsx";
 
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <MainLayout />,
+    children: [
+      { index: true, element: <Home /> },
+      { path: "movies", element: <Movies /> },
+      { path: "tv", element: <TVShows /> },
+    ],
+  },
+]);
 function App() {
-  const [activeButton, setActiveButton] = useState(1);
-  //movie tv all
-  const { data, loading, error } = useFetchTrending("all");
-  const handleActiveButton = (id) => setActiveButton(id);
-
-  let filtredData = data;
-
-  if (activeButton === 2) {
-    filtredData = data.filter((item) => item.media_type === "movie");
-  }
-
-  if (activeButton === 3) {
-    filtredData = data.filter((item) => item.media_type === "tv");
-  }
-  if (loading) return <div>Loading...</div>;
-  if (error) return <div>Error: {error}</div>;
-  return (
-    <div className="container">
-      <Home
-        active={activeButton}
-        setActive={handleActiveButton}
-        data={filtredData}
-      />
-
-      <MovieDetails />
-    </div>
-  );
+  return <RouterProvider router={router} />;
 }
 
 export default App;
