@@ -1,28 +1,15 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import Grid from "./components/Grid.jsx";
-import Home from "./Page/Home.jsx";
-
-const apiKey = import.meta.env.VITE_API_KEY;
+import Home from "./Page/HomePage.jsx";
+import MovieDetails from "./Page/MovieDetails.jsx";
+import { useFetchTrending } from "./hooks/useFetchTrending";
 
 function App() {
-  const [data, setData] = useState([]);
   const [activeButton, setActiveButton] = useState(1);
-
+  //movie tv all
+  const { data, loading, error } = useFetchTrending("all");
   const handleActiveButton = (id) => setActiveButton(id);
 
-  useEffect(() => {
-    const fetchData = async () => {
-      const response = await fetch(
-        `https://api.themoviedb.org/3/trending/all/day?api_key=${apiKey}`,
-      );
-      const result = await response.json();
-      setData(result.results);
-    };
-
-    fetchData();
-  }, []);
-
-  console.log(data);
   let filtredData = data;
 
   if (activeButton === 2) {
@@ -32,13 +19,17 @@ function App() {
   if (activeButton === 3) {
     filtredData = data.filter((item) => item.media_type === "tv");
   }
-
-  console.log(filtredData);
-
+  if (loading) return <div>Loading...</div>;
+  if (error) return <div>Error: {error}</div>;
   return (
     <div className="container">
-      <Home active={activeButton} setActive={handleActiveButton} />
-      <Grid data={filtredData} />
+      <Home
+        active={activeButton}
+        setActive={handleActiveButton}
+        data={filtredData}
+      />
+
+      <MovieDetails />
     </div>
   );
 }

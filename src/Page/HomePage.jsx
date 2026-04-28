@@ -1,9 +1,10 @@
 import Menu from "../components/Menu";
 import Header from "../components/Header";
-import styles from "./Home.module.scss";
+import styles from "./HomePage.module.scss";
 import Button from "../components/Button";
+import Grid from "../components/Grid";
 
-export default function Home({ active, setActive }) {
+export default function Home({ active, setActive, data }) {
   return (
     <>
       <Menu />
@@ -22,6 +23,8 @@ export default function Home({ active, setActive }) {
           TV Shows
         </Button>
       </div>
+
+      <Grid data={data} />
     </>
   );
 }
