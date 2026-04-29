@@ -11,7 +11,7 @@ export default function Card({ data }) {
         <img src={image} alt="img" width={266} height={400} />
         <div className={styles.rating}>
           <img src={star} alt="" />
-          {vote_average}
+          {Number(vote_average.toFixed(1))}
         </div>
       </div>
       <p className={styles.text}>{name || title}</p>
