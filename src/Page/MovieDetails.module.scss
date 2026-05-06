@@ -34,7 +34,16 @@
 	margin-top: 80px;
 	gap: 80px;
 	padding-inline: 80px;
+	li:nth-child(even){
+	color: var(--grey--100);
+	font-size: rem(18);
+	margin-top: 8px;
+}
 
+li:nth-child(odd){
+	
+	margin-top: 24px;
+}
 }
 
 .image{
@@ -51,23 +60,14 @@
 }
 
 .rating{
-	padding: 8px;
+	  padding: 8px 12px;
 	background-color: rgba(0, 0, 0, 0.65);
 	border-radius: 8px;
 	color: var(--warning--500);
 	display: inline-flex;
 	gap: 4px;
-	flex-basis: auto; 
-  align-self: flex-start; 
+	align-self: flex-start;
+
 }
 
-li:nth-child(even){
-	color: var(--grey--100);
-	font-size: rem(18);
-	margin-top: 8px;
-}
 
-li:nth-child(odd){
-	
-	margin-top: 24px;
-}
