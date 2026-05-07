@@ -5,21 +5,20 @@ import MovieDetails from "../Page/MovieDetails";
 import { useNavigate } from "react-router";
 
 export default function Card({ data }) {
-  const { name, vote_average, title, poster_path } = data;
+  const { id, name, vote_average, title, poster_path } = data;
   const image = `https://image.tmdb.org/t/p/w500/${poster_path}`;
 
-  const nameOf = (name || title || "").split(" ").join("_");
-
   let navigate = useNavigate();
-  const handleClick = (name) => {
-    navigate(`/details/${name}`);
+
+  const handleClick = (id) => {
+    navigate(`/details/${id}`);
   };
 
   return (
     <div
       className={styles.wraper}
       onClick={() => {
-        handleClick(nameOf);
+        handleClick(id);
       }}
     >
       <div className={styles.poster}>

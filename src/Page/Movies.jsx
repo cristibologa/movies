@@ -1,9 +1,7 @@
 import Grid from "../components/Grid";
 import Header from "../components/Header";
-import { useFetchTrending } from "../hooks/useFetchTrending";
 
-export default function MoviesPage() {
-  const { data, loading, error } = useFetchTrending("movie");
+export default function MoviesPage({ data, loading, error }) {
   if (loading) return <div>Loading...</div>;
   if (error) return <div>Error: {error}</div>;
 

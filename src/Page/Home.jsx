@@ -2,15 +2,12 @@ import Header from "../components/Header";
 import styles from "./Home.module.scss";
 import Button from "../components/Button";
 import Grid from "../components/Grid";
-import { useFetchTrending } from "../hooks/useFetchTrending";
 import { useState } from "react";
 
-export default function Home() {
+export default function Home({ data, loading, error }) {
   const [activeButton, setActiveButton] = useState(1);
 
   const handleActiveButton = (id) => setActiveButton(id);
-  //movie tv all
-  const { data, loading, error } = useFetchTrending("all");
 
   let filtredData = data;
 
