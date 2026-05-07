@@ -4,7 +4,7 @@ import star from "../assets/star.svg";
 
 import styles from "./MovieDetails.module.scss";
 
-export default function MovieDetails() {
+export default function MovieDetails({ data }) {
   return (
     <>
       <div className={styles.wrapper}>
