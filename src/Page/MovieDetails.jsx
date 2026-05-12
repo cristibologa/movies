@@ -26,8 +26,6 @@ export default function MovieDetails({ data }) {
 
   const backdrop = `https://image.tmdb.org/t/p/original/${backdrop_path}`;
 
-  // console.log(title);
-
   return (
     <>
       <div className={styles.wrapper}>

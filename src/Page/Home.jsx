@@ -4,7 +4,13 @@ import Button from "../components/Button";
 import Grid from "../components/Grid";
 import { useState } from "react";
 
-export default function Home({ data, loading, error }) {
+export default function Home({
+  data,
+  loading,
+  error,
+  handleChange,
+  textInput,
+}) {
   const [activeButton, setActiveButton] = useState(1);
 
   const handleActiveButton = (id) => setActiveButton(id);
@@ -25,6 +31,8 @@ export default function Home({ data, loading, error }) {
       <Header
         title="MaileHereko"
         text="List of movies and TV Shows, I, Pramod Poudel have watched till date. Explore what I have watched and also feel free to make a suggestion."
+        handleChange={handleChange}
+        textInput={textInput}
       />
       <div className={styles.button__block}>
         <Button id={1} active={activeButton} setActive={handleActiveButton}>
