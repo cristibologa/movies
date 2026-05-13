@@ -1,10 +1,15 @@
 @use '../styles/helpers' as *;
 .wrapper{
 	position: relative;
+	button{
+		position: absolute;
+		top:20px;
+		right: 20px;
+	}
 }
 .poster{
 	max-width: 1200px;
-	max-height: 480px;
+	height: 480px;
 	border-radius: 40px;
 	position: relative;
 	overflow: hidden;
@@ -16,6 +21,8 @@
     rgba(54, 44, 146, 0.4),
     rgba(18, 98, 151, 0.4))
 	}
+
+	
 }
 
 .title{

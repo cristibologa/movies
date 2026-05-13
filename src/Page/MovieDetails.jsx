@@ -3,7 +3,7 @@ import star from "../assets/star.svg";
 
 import styles from "./MovieDetails.module.scss";
 
-export default function MovieDetails({ data }) {
+export default function MovieDetails({ data, handleAddWatchList }) {
   const { id } = useParams();
   const selectedMovie = data?.find((movie) => movie.id === Number(id));
   if (!selectedMovie) {
@@ -32,6 +32,13 @@ export default function MovieDetails({ data }) {
         <div className={styles.poster}>
           <img src={backdrop} alt="" />
         </div>
+        <button
+          onClick={() => {
+            handleAddWatchList(selectedMovie);
+          }}
+        >
+          Add to
+        </button>
         <div className={styles.title}>
           <span>MaileHereko / Movies</span>
           <h3 className="h3">{name || title}</h3>

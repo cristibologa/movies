@@ -6,19 +6,26 @@ import TVShows from "./Page/TVShows.jsx";
 import MovieDetails from "./Page/MovieDetails.jsx";
 import { useFetchTrending } from "./hooks/useFetchTrending.js";
 import { useState } from "react";
+import WatchList from "./Page/WatchList.jsx";
 
 function App() {
   const [textInput, setTextInput] = useState("");
+  const [watchList, setWatchList] = useState([]);
+
+  function handleAddWatchList(item) {
+    setWatchList((prev) => {
+      
+      const isDuplicate = prev.some(
+        (existingItem) => existingItem.id === item.id,
+      );
+      if (isDuplicate) return prev;
+      return [...prev, item];
+    });
+  }
 
   const handleChange = (e) => {
     setTextInput(e.target.value);
   };
-
-  // const {
-  //   data: allData,
-  //   loading: loadingAll,
-  //   error: errorAll,
-  // } = useFetchTrending("all");
 
   const {
     data: movie,
@@ -77,7 +84,16 @@ function App() {
             />
           ),
         },
-        { path: "details/:id", element: <MovieDetails data={allData} /> },
+        {
+          path: "details/:id",
+          element: (
+            <MovieDetails
+              data={allData}
+              handleAddWatchList={handleAddWatchList}
+            />
+          ),
+        },
+        { path: "watch", element: <WatchList data={watchList} /> },
       ],
     },
   ]);

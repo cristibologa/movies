@@ -21,9 +21,9 @@ export default function Menu() {
             </Link>
           </li>
           <li className="item">
-            <a href="#" className={styles.link}>
-              Suggest me
-            </a>
+            <Link to="watch" className={styles.link}>
+              Watch List
+            </Link>
           </li>
         </ul>
       </nav>

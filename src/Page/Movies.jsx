@@ -8,8 +8,6 @@ export default function MoviesPage({
   textInput,
   handleChange,
 }) {
-  console.log(textInput);
-
   const filteredData = data.filter((item) =>
     item.title.toLowerCase().includes(textInput.toLowerCase()),
   );
