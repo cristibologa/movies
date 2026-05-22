@@ -5,16 +5,23 @@ import Movies from "./Page/Movies.jsx";
 import TVShows from "./Page/TVShows.jsx";
 import MovieDetails from "./Page/MovieDetails.jsx";
 import { useFetchTrending } from "./hooks/useFetchTrending.js";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import WatchList from "./Page/WatchList.jsx";
 
 function App() {
   const [textInput, setTextInput] = useState("");
-  const [watchList, setWatchList] = useState([]);
+
+  const [watchList, setWatchList] = useState(() => {
+    const savedWatchList = localStorage.getItem("watchList");
+    return savedWatchList ? JSON.parse(savedWatchList) : [];
+  });
+
+  useEffect(() => {
+    localStorage.setItem("watchList", JSON.stringify(watchList));
+  }, [watchList]);
 
   function handleAddWatchList(item) {
     setWatchList((prev) => {
-      
       const isDuplicate = prev.some(
         (existingItem) => existingItem.id === item.id,
       );
